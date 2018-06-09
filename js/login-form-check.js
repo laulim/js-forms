@@ -22,18 +22,15 @@ $(document).ready(function(){
 		// приватные методы
 		var _validateForm = function(e){
 			e.preventDefault();
-			// var valid = true;
 			var emailVal = _form.find('#email').val().trim().toLowerCase();
 			var passwordVal = _form.find('#password').val().trim();
-			var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
-		
 			// проверка инпутов на заполненность
 			$.each(_input, function(index, val){
 				var input = $(val);
-				var	value = input.val().trim();
-				var	textError = input.attr('data-error');
-				var	errorMessage = $('<div class="error error-one-string">' + textError + '</div>');
+				var value = input.val().trim();
+				var textError = input.attr('data-error');
+				var errorMessage = $('<div class="error error-one-string">' + textError + '</div>');
 				var errorMessageData = $('<div class="error error--with-desc">Неверный email или пароль</div>' 
 					+ '<div class="error-description">' 
 					+ '<p>Введите верные данные для входа или воспользуйтесь <a href="#">восстановлением пароля, </a>чтобы войти на сайт.</p>' 
