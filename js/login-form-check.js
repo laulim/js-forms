@@ -15,7 +15,6 @@ $(document).ready(function(){
 		var _setUpListeners = function(){
 			_form.on('submit', function(e){
 				_validateForm(e);
-				// _submitForm();
 			});
 		}
 
@@ -54,7 +53,7 @@ $(document).ready(function(){
 							input.siblings('.error--with-desc, .error-description').slideUp(500);
 							errorMessageData.insertBefore(_form.find('.plate__links')).hide().slideDown(500);
 						}
-					} else {
+					} else if (value.length > 0) {
 						input.next('.error-one-string').slideUp(500);
 						textError = input.attr('data-error-format');
 						errorMessage = $('<div class="error error-one-string">' + textError + '</div>');
@@ -62,7 +61,6 @@ $(document).ready(function(){
 					}
 				} 	
 
-				
 				// скрыть ошибки 
 				input.on('focus', function(){
 					input.next('.error-one-string').slideUp(500);
@@ -72,9 +70,7 @@ $(document).ready(function(){
 		}
 
 		return { init }
-
 	}());
 
 	loginFormCheck.init();
-
 });
