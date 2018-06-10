@@ -49,7 +49,7 @@ $(document).ready(function(){
 					if (pattern.test(value)) {
 						if (emailVal == 'mail@mail.com' && passwordVal == '123') {
 							_form.unbind('submit').submit();
-						} else {
+						} else if (passwordVal.length > 0){
 							input.siblings('.error--with-desc, .error-description').slideUp(500);
 							errorMessageData.insertBefore(_form.find('.plate__links')).hide().slideDown(500);
 						}
