@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var loginFormCheck = (function(){
+	var registrationFormCheck = (function(){
 
 		// приватные переменные модуля
 		var _form = $('#registration-form');
@@ -22,6 +22,7 @@ $(document).ready(function(){
 		var _validateForm = function(e){
 			e.preventDefault();
 			var emailVal = _form.find('#email').val().trim().toLowerCase();
+			var passwordVal = _form.find('#password').val().trim().toLowerCase();
 		
 			// проверка инпутов на заполненность
 			$.each(_input, function(index, val){
@@ -50,7 +51,7 @@ $(document).ready(function(){
 						if (emailVal == 'mail@mail.com') {
 							input.siblings('.error--with-desc, .error-description').slideUp(500);
 							errorMessageData.insertAfter(_form.find('#email')).hide().slideDown(500);
-						} else {
+						} else if (passwordVal.length > 0) {
 							_form.unbind('submit').submit();
 						}
 					} else if (emailVal.length > 0){
@@ -72,5 +73,5 @@ $(document).ready(function(){
 		return { init }
 	}());
 
-	loginFormCheck.init();
+	registrationFormCheck.init();
 });
